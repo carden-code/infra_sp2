@@ -26,7 +26,7 @@
 
 ### Пример заполнения файла .env: 
 
-`SECRET_KEY=by8f8347h9hpwidjflahgkakglamdlfmsdjkbj
+```SECRET_KEY=by8f8347h9hpwidjflahgkakglamdlfmsdjkbj
 
  DB_ENGINE=django.db.backends.postgresql # указываем, что работаем с postgresql 
 
@@ -37,9 +37,9 @@
  POSTGRES_PASSWORD=postgres # пароль для подключения к БД (установите свой) 
 
  DB_HOST=db # название сервиса (контейнера) 
- 
+
  DB_PORT=5432 # порт для подключения к БД 
-`
+```
 
 `echo "SECRET_KEY=YourSecretKey 
        DB_ENGINE=django.db.backends.postgresql 
