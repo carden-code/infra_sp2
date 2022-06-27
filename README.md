@@ -32,7 +32,7 @@ POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres 
 DB_HOST=db DB_PORT=5432" > .env
 ```
-### Пример заполнения файла .env: 
+- Пример заполнения файла .env: 
 
 ```
 SECRET_KEY=by8f8347h9hpwidjflahgkakglamdlfmsdjkbj
