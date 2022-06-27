@@ -24,12 +24,13 @@
 `cd infra_sp2/infra
 `
 
-```echo "SECRET_KEY=YourSecretKey 
-       DB_ENGINE=django.db.backends.postgresql 
-       DB_NAME=postgres 
-       POSTGRES_USER=postgres 
-       POSTGRES_PASSWORD=postgres 
-       DB_HOST=db DB_PORT=5432" > .env
+```
+echo "SECRET_KEY=YourSecretKey 
+DB_ENGINE=django.db.backends.postgresql 
+DB_NAME=postgres 
+POSTGRES_USER=postgres 
+POSTGRES_PASSWORD=postgres 
+DB_HOST=db DB_PORT=5432" > .env
 ```
 ### Пример заполнения файла .env: 
 
