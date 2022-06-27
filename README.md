@@ -34,19 +34,14 @@ DB_HOST=db DB_PORT=5432" > .env
 ```
 ### Пример заполнения файла .env: 
 
-```SECRET_KEY=by8f8347h9hpwidjflahgkakglamdlfmsdjkbj
-
- DB_ENGINE=django.db.backends.postgresql # указываем, что работаем с postgresql 
-
- DB_NAME=postgres # имя базы данных 
-
- POSTGRES_USER=postgres # логин для подключения к базе данных 
-
- POSTGRES_PASSWORD=postgres # пароль для подключения к БД (установите свой) 
-
- DB_HOST=db # название сервиса (контейнера) 
-
- DB_PORT=5432 # порт для подключения к БД 
+```
+SECRET_KEY=by8f8347h9hpwidjflahgkakglamdlfmsdjkbj
+DB_ENGINE=django.db.backends.postgresql # указываем, что работаем с postgresql 
+DB_NAME=postgres # имя базы данных 
+POSTGRES_USER=postgres # логин для подключения к базе данных 
+POSTGRES_PASSWORD=postgres # пароль для подключения к БД (установите свой) 
+DB_HOST=db # название сервиса (контейнера) 
+DB_PORT=5432 # порт для подключения к БД 
 ```
 
 - Cборка docker-compose:
