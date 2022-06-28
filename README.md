@@ -60,6 +60,10 @@ DB_PORT=5432 # порт для подключения к БД
 
 `sudo docker-compose exec python manage.py collectstatic
 `
+- Заполнение базы данными:
+
+`sudo docker-compose exec python manage.py load_info
+`
 
 - Получаем ключ авторизации для получения токена:
 

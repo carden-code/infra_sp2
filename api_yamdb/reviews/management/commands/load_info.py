@@ -1,8 +1,10 @@
 import csv
 import os
+
 from django.conf import settings
 from django.core.management.base import BaseCommand
-
+from django.core.management.color import no_style
+from django.db import connection
 from reviews.models import Category, Comment, Genre, GenreTitle, Review, Title
 from users.models import User
 
@@ -59,7 +61,7 @@ def review_create(row):
         text=row[2],
         author_id=row[3],
         score=row[4],
-        pub_date=row[5]
+        pub_date=row[5],
     )
 
 
@@ -74,13 +76,13 @@ def comment_create(row):
 
 
 action = {
-    'category.csv': category_create,
-    'genre.csv': genre_create,
-    'titles.csv': titles_create,
-    'genre_title.csv': genre_title_create,
-    'users.csv': users_create,
-    'review.csv': review_create,
-    'comments.csv': comment_create,
+    "category.csv": category_create,
+    "genre.csv": genre_create,
+    "titles.csv": titles_create,
+    "genre_title.csv": genre_title_create,
+    "users.csv": users_create,
+    "review.csv": review_create,
+    "comments.csv": comment_create,
 }
 
 
@@ -90,8 +92,16 @@ class Command(BaseCommand):
         for filename in action.keys():
             print(filename)
             path = os.path.join(settings.BASE_DIR, "static/data/") + filename
-            with open(path, 'r', encoding='utf-8') as file:
+            with open(path, "r", encoding="utf-8") as file:
                 reader = csv.reader(file)
                 next(reader)
                 for row in reader:
                     action[filename](row)
+
+        sequence_sql = connection.ops.sequence_reset_sql(
+            no_style(),
+            [Category, Comment, Genre, GenreTitle, Review, Title, User]
+        )
+        with connection.cursor() as cursor:
+            for sql in sequence_sql:
+                cursor.execute(sql)
